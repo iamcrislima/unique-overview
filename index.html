@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Unique — BPM na 1doc</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root {
+  --blue:        #2563EB;
+  --blue-dark:   #1D4ED8;
+  --blue-deep:   #1E3A8A;
+  --blue-light:  #EFF6FF;
+  --blue-mid:    #DBEAFE;
+  --blue-border: #BFDBFE;
+  --teal:        #0D9488;
+  --teal-light:  #CCFBF1;
+  --teal-border: #5EEAD4;
+  --green:       #16A34A;
+  --green-light: #DCFCE7;
+  --green-border:#86EFAC;
+  --amber:       #D97706;
+  --amber-light: #FEF3C7;
+  --amber-border:#FCD34D;
+  --red:         #DC2626;
+  --red-light:   #FEE2E2;
+  --purple:      #7C3AED;
+  --purple-light:#F5F3FF;
+  --purple-border:#C4B5FD;
+  --dark:        #0F172A;
+  --dark2:       #1E293B;
+  --dark3:       #334155;
+  --text:        #1E293B;
+  --text2:       #475569;
+  --text3:       #94A3B8;
+  --border:      #E2E8F0;
+  --border2:     #CBD5E1;
+  --bg:          #F8FAFC;
+  --bg2:         #F1F5F9;
+  --white:       #FFFFFF;
+  --radius:      10px;
+  --radius-sm:   6px;
+  --radius-lg:   14px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Open Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 14px; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 54px;
+}
+.nav-left { display: flex; align-items: center; gap: 1rem; }
+.nav-logo { display: flex; align-items: center; gap: 8px; }
+.nav-logo-icon { width: 28px; height: 28px; background: var(--blue); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.nav-logo-icon svg { width: 16px; height: 16px; fill: white; }
+.nav-logo-text { font-size: 15px; font-weight: 700; color: var(--blue); }
+.nav-sep { width: 1px; height: 20px; background: var(--border); }
+.nav-project { font-size: 13px; color: var(--text2); }
+.nav-links { display: flex; gap: .25rem; }
+.nav-links a { font-size: 12px; color: var(--text2); text-decoration: none; padding: 5px 10px; border-radius: var(--radius-sm); }
+.nav-links a:hover { background: var(--bg2); color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: .75rem; }
+.nav-badge { background: var(--blue-light); color: var(--blue); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--blue-border); }
+
+/* HERO */
+.hero { padding: 4.5rem 2.5rem 3.5rem; max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-tag { display: inline-flex; align-items: center; gap: 6px; background: var(--blue-light); border: 1px solid var(--blue-border); border-radius: 99px; padding: 4px 12px; font-size: 11px; font-weight: 600; color: var(--blue); margin-bottom: 1.25rem; letter-spacing: .02em; text-transform: uppercase; }
+.hero h1 { font-size: 30px; font-weight: 700; line-height: 1.2; color: var(--dark); margin-bottom: 1rem; letter-spacing: -.02em; }
+.hero h1 span { color: var(--blue); }
+.hero p { font-size: 14px; color: var(--text2); line-height: 1.75; margin-bottom: 1.75rem; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 99px; border: 1px solid; }
+.chip-blue { background: var(--blue-light); color: var(--blue); border-color: var(--blue-border); }
+.chip-teal { background: var(--teal-light); color: var(--teal); border-color: var(--teal-border); }
+.chip-gray { background: var(--bg2); color: var(--text2); border-color: var(--border); }
+.chip-amber { background: var(--amber-light); color: var(--amber); border-color: var(--amber-border); }
+
+.hero-stats { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.hero-stats-header { background: var(--blue); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 8px; }
+.hero-stats-header span { font-size: 12px; font-weight: 600; color: white; }
+.hero-stats-body { display: grid; grid-template-columns: 1fr 1fr; }
+.stat-box { padding: 1rem 1.25rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.stat-box:nth-child(2n) { border-right: none; }
+.stat-box:nth-child(3), .stat-box:nth-child(4) { border-bottom: none; }
+.stat-label { font-size: 10px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+.stat-val { font-size: 18px; font-weight: 700; color: var(--dark); }
+.stat-val.blue { color: var(--blue); }
+.stat-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+/* STRIP */
+.blue-strip { background: var(--blue-deep); padding: .75rem 2.5rem; display: flex; align-items: center; gap: 2rem; overflow-x: auto; }
+.strip-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.strip-dot { width: 6px; height: 6px; border-radius: 50%; background: #60A5FA; flex-shrink: 0; }
+.strip-text { font-size: 12px; color: #BFDBFE; }
+.strip-sep { width: 1px; height: 16px; background: #2D4A8A; flex-shrink: 0; }
+
+/* SECTIONS */
+.section { padding: 4rem 2.5rem; max-width: 960px; margin: 0 auto; }
+.section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: .6rem; }
+.section-title { font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--dark); margin-bottom: .75rem; letter-spacing: -.02em; line-height: 1.25; }
+.section-title span { color: var(--blue); }
+.section-body { font-size: 14px; color: var(--text2); line-height: 1.75; max-width: 560px; }
+hr.divider { border: none; border-top: 1px solid var(--border); max-width: 960px; margin: 0 auto; }
+
+/* COMPONENTES */
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+.comp-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; position: relative; overflow: hidden; }
+.comp-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.comp-card.novo::before { background: var(--blue); }
+.comp-card.existe::before { background: var(--green); }
+.comp-card.adapta::before { background: var(--teal); }
+.comp-card.construido::before { background: var(--amber); }
+.comp-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: .75rem; gap: .5rem; }
+.comp-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.comp-icon i { font-size: 18px; }
+.icon-blue { background: var(--blue-light); color: var(--blue); }
+.icon-green { background: var(--green-light); color: var(--green); }
+.icon-teal { background: var(--teal-light); color: var(--teal); }
+.icon-amber { background: var(--amber-light); color: var(--amber); }
+.comp-badge { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 99px; text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.badge-novo { background: var(--blue-light); color: var(--blue); }
+.badge-existe { background: var(--green-light); color: var(--green); }
+.badge-adapta { background: var(--teal-light); color: var(--teal); }
+.badge-construido { background: var(--amber-light); color: var(--amber); }
+.comp-card h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: .4rem; }
+.comp-card p { font-size: 13px; color: var(--text2); line-height: 1.6; }
+.comp-detail { margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--border); }
+.comp-detail-item { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 4px; font-size: 12px; color: var(--text2); }
+.comp-detail-item i { font-size: 12px; color: var(--text3); margin-top: 2px; flex-shrink: 0; }
+
+/* FLUXO */
+.flow-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.flow-col-header { display: flex; align-items: center; gap: 8px; padding-bottom: .75rem; border-bottom: 2px solid; margin-bottom: 1rem; }
+.flow-col-header.before { border-color: var(--border2); }
+.flow-col-header.after { border-color: var(--blue); }
+.flow-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+.flow-col-header.before .flow-label { color: var(--text3); }
+.flow-col-header.after .flow-label { color: var(--blue); }
+.flow-step { display: flex; gap: 12px; align-items: flex-start; padding: .75rem 0; border-bottom: 1px solid var(--border); }
+.flow-step:last-child { border-bottom: none; }
+.fnum { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+.fnum-gray { background: var(--bg2); color: var(--text3); border: 1px solid var(--border); }
+.fnum-blue { background: var(--blue); color: white; }
+.fstep-content strong { display: block; font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
+.fstep-content span { font-size: 12px; color: var(--text2); }
+
+/* DARK SECTION */
+.dark-section { background: var(--dark2); border-top: 1px solid var(--dark3); border-bottom: 1px solid var(--dark3); padding: 4rem 2.5rem; }
+.dark-inner { max-width: 960px; margin: 0 auto; }
+.dark-section .section-eyebrow { color: #60A5FA; }
+.dark-section .section-title { color: white; }
+.dark-section .section-body { color: #94A3B8; }
+.decisions-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .75rem; margin-top: 2rem; }
+.dec-card { background: var(--dark); border: 1px solid var(--dark3); border-radius: var(--radius); padding: 1rem 1.25rem; }
+.dec-label { font-size: 10px; font-weight: 700; color: #60A5FA; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .35rem; }
+.dec-val { font-size: 13px; color: #CBD5E1; line-height: 1.5; }
+
+/* QUOTE */
+.quote-block { margin-top: 2rem; background: var(--dark); border-radius: var(--radius-lg); padding: 2rem 2.5rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+.quote-icon { font-size: 28px; color: #60A5FA; flex-shrink: 0; margin-top: 2px; opacity: .5; }
+.quote-text { font-size: 15px; font-style: italic; color: #E2E8F0; line-height: 1.65; margin-bottom: .75rem; font-weight: 300; }
+.quote-cite { font-size: 12px; color: #60A5FA; font-weight: 600; font-style: normal; }
+
+/* PROCESSO */
+.process-steps { margin-top: 2.5rem; position: relative; padding-left: 2rem; }
+.process-steps::before { content: ''; position: absolute; left: 11px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+.ps-item { position: relative; margin-bottom: 2rem; }
+.ps-item:last-child { margin-bottom: 0; }
+.ps-dot { position: absolute; left: -2rem; top: 2px; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; border: 1px solid; z-index: 1; }
+.ps-done { background: var(--green-light); color: var(--green); border-color: var(--green-border); }
+.ps-active { background: var(--blue-light); color: var(--blue); border-color: var(--blue-border); }
+.ps-next { background: var(--white); color: var(--text3); border-color: var(--border); }
+.ps-head { display: flex; align-items: center; gap: 8px; margin-bottom: .35rem; flex-wrap: wrap; }
+.ps-head h4 { font-size: 14px; font-weight: 700; color: var(--dark); }
+.ps-status { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 99px; text-transform: uppercase; letter-spacing: .04em; }
+.s-done { background: var(--green-light); color: var(--green); }
+.s-active { background: var(--blue-light); color: var(--blue); }
+.s-next { background: var(--bg2); color: var(--text3); }
+.ps-item p { font-size: 13px; color: var(--text2); line-height: 1.65; }
+
+/* FOOTER */
+footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px solid var(--dark3); }
+.footer-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
+.footer-brand { display: flex; align-items: center; gap: 8px; margin-bottom: .75rem; }
+.footer-logo-icon { width: 28px; height: 28px; background: var(--blue); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.footer-logo-icon i { font-size: 14px; color: white; }
+.footer-logo-text { font-size: 14px; font-weight: 700; color: white; }
+.footer-tagline { font-size: 13px; color: #475569; line-height: 1.6; max-width: 280px; }
+.footer-team h5 { font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .75rem; }
+.team-list { display: flex; flex-direction: column; gap: .5rem; }
+.team-member { display: flex; align-items: center; gap: 8px; }
+.avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; border: 1px solid var(--dark3); flex-shrink: 0; }
+.av-blue { background: #1E3A8A; color: #60A5FA; }
+.av-teal { background: #134E4A; color: #5EEAD4; }
+.av-gray { background: var(--dark2); color: #94A3B8; }
+.team-info .name { font-size: 12px; font-weight: 600; color: #CBD5E1; }
+.team-info .role { font-size: 11px; color: #475569; }
+.footer-bottom { max-width: 960px; margin: 2rem auto 0; padding-top: 1.25rem; border-top: 1px solid var(--dark3); display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom p { font-size: 11px; color: #334155; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+      </div>
+      <span class="nav-logo-text">1doc</span>
+    </div>
+    <div class="nav-sep"></div>
+    <span class="nav-project">Projeto Unique · BPM</span>
+  </div>
+  <div class="nav-links">
+    <a href="#componentes">Componentes</a>
+    <a href="#fluxo">Fluxo</a>
+    <a href="#decisoes">Decisões</a>
+    <a href="#processo">Processo</a>
+  </div>
+  <div class="nav-right">
+    <span style="font-size:12px;color:var(--text3)">Mai 2026</span>
+    <span class="nav-badge">Em andamento</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-tag">Projeto Unique · Product Design</div>
+    <h1>Automatizando processos na 1doc com <span>motor de BPM</span></h1>
+    <p>A 1doc atende centenas de prefeituras no Brasil. Este projeto integra o motor Camunda à plataforma, transformando fluxos manuais e dependentes de pessoas em experiências guiadas, rastreáveis e automáticas.</p>
+    <div class="hero-chips">
+      <span class="chip chip-blue">Camunda BPM</span>
+      <span class="chip chip-teal">Setor público</span>
+      <span class="chip chip-amber">Prototipação</span>
+      <span class="chip chip-gray">Cris Lima · Designer Sr.</span>
+    </div>
+  </div>
+  <div>
+    <div class="hero-stats">
+      <div class="hero-stats-header">
+        <i class="ti ti-chart-bar" style="color:white;font-size:15px"></i>
+        <span>Visão geral do projeto</span>
+      </div>
+      <div class="hero-stats-body">
+        <div class="stat-box">
+          <div class="stat-label">Componentes</div>
+          <div class="stat-val blue">4</div>
+          <div class="stat-sub">módulos envolvidos</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Fase</div>
+          <div class="stat-val" style="font-size:14px">Protótipo</div>
+          <div class="stat-sub">Camunda iniciado</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Já construído</div>
+          <div class="stat-val blue">1</div>
+          <div class="stat-sub">config. automações</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Próximo</div>
+          <div class="stat-val" style="font-size:14px">Validação</div>
+          <div class="stat-sub">interna → externa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- COMPONENTES -->
+<section id="componentes" class="section">
+  <div class="section-eyebrow">O que está sendo construído</div>
+  <h2 class="section-title">4 componentes.<br><span>Estados diferentes.</span></h2>
+  <p class="section-body">O projeto Unique não parte do zero — parte do que já existe na 1doc e no SolarBPM. Cada componente tem um estado claro: já construído, existente que precisa adaptar, ou novo.</p>
+
+  <div class="comp-grid">
+
+    <div class="comp-card novo">
+      <div class="comp-header">
+        <div class="comp-icon icon-blue"><i class="ti ti-checklist"></i></div>
+        <span class="comp-badge badge-novo">Novo módulo</span>
+      </div>
+      <h3>Módulo de tarefas</h3>
+      <p>Nova entrada no menu superior da 1doc. Hub central de pendências do setor com contador de tarefas ativas, filtros e botão Resolver por tarefa.</p>
+      <div class="comp-detail">
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Entra no menu superior entre "Fila de assinaturas" e Buscar</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Tarefas por setor — não por pessoa (limitação atual)</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Resolver funciona aqui e na Emissão — sincronizados</div>
+      </div>
+    </div>
+
+    <div class="comp-card construido">
+      <div class="comp-header">
+        <div class="comp-icon icon-amber"><i class="ti ti-git-branch"></i></div>
+        <span class="comp-badge badge-construido">Já construído</span>
+      </div>
+      <h3>Configuração de automações</h3>
+      <p>Motor Camunda já rodando em projeto separado (1bpm.vercel.app). Interface de criação e configuração de fluxos BPM, integração com processos externos e triggers.</p>
+      <div class="comp-detail">
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Projeto 1doc-bpm rodando localmente na porta 5176</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Módulos: motor, configurações, front personalizado</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Backoffice que alimenta os fluxos da 1doc</div>
+      </div>
+    </div>
+
+    <div class="comp-card adapta">
+      <div class="comp-header">
+        <div class="comp-icon icon-teal"><i class="ti ti-timeline"></i></div>
+        <span class="comp-badge badge-adapta">Adaptação</span>
+      </div>
+      <h3>Acompanhamento de processo</h3>
+      <p>Já existe na Emissão como barra de etapas visual (Cotação → Análise → Aprovação...). Precisa ser adaptada para responder ao Camunda e refletir o estado real do fluxo BPM.</p>
+      <div class="comp-detail">
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Etapas atuais são estáticas — precisam virar dinâmicas</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Evento de tarefa inline na linha do tempo</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Diferenciação visual: despacho humano vs gerado pelo BPM</div>
+      </div>
+    </div>
+
+    <div class="comp-card novo">
+      <div class="comp-header">
+        <div class="comp-icon icon-blue"><i class="ti ti-forms"></i></div>
+        <span class="comp-badge badge-novo">Novo módulo</span>
+      </div>
+      <h3>Formulários dinâmicos</h3>
+      <p>A 1doc tem um módulo de formulários hoje, mas ele não atende o BPM. Precisamos de formulários por etapa — cada fase do fluxo pode ter seu próprio form, upload ou ação específica.</p>
+      <div class="comp-detail">
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Form atual está amarrado ao assunto — não às etapas</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Cada etapa pode ter: form, upload, aprovação simples</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Abre no modal de resolução ao clicar em Resolver</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FLUXO -->
+<section id="fluxo" class="section">
+  <div class="section-eyebrow">O fluxo com BPM</div>
+  <h2 class="section-title">De respostas encadeadas<br>a <span>tarefas automáticas</span></h2>
+  <p class="section-body">A chegada do BPM não substitui a 1doc — ela a potencializa. O processo continua sendo criado da mesma forma, mas a partir daí a plataforma guia cada etapa.</p>
+
+  <div class="flow-grid">
+    <div class="flow-col">
+      <div class="flow-col-header before"><span class="flow-label">Hoje — sem BPM</span></div>
+      <div class="flow-step">
+        <div class="fnum fnum-gray">1</div>
+        <div class="fstep-content"><strong>Processo cai no inbox coletivo</strong><span>Para todos do setor, sem distinção ou prioridade.</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum fnum-gray">2</div>
+        <div class="fstep-content"><strong>Alguém abre e responde</strong><span>Depende da pessoa certa ver e agir no momento certo.</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum fnum-gray">3</div>
+        <div class="fstep-content"><strong>Tramitação via respostas</strong><span>Encadeamento manual — cada pessoa passa o bastão.</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum fnum-gray">4</div>
+        <div class="fstep-content"><strong>Sem visibilidade de etapa</strong><span>Ninguém sabe onde o processo está sem abrir tudo.</span></div>
+      </div>
+    </div>
+    <div class="flow-col">
+      <div class="flow-col-header after"><span class="flow-label">Com BPM — Projeto Unique</span></div>
+      <div class="flow-step">
+        <div class="fnum fnum-blue">1</div>
+        <div class="fstep-content"><strong>Processo + formulário dinâmico</strong><span>Criado vinculado a um fluxo BPM com etapas definidas.</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum fnum-blue">2</div>
+        <div class="fstep-content"><strong>Tarefa gerada automaticamente</strong><span>Aparece no módulo de Tarefas (menu superior) do setor.</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum fnum-blue">3</div>
+        <div class="fstep-content"><strong>Resolver → modal → despacho</strong><span>Cada resolução gera registro e dispara a próxima etapa.</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="fnum fnum-blue">4</div>
+        <div class="fstep-content"><strong>Progresso visível na barra de etapas</strong><span>A barra já existe na Emissão — passa a ser alimentada pelo Camunda.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <span class="quote-icon">"</span>
+    <div>
+      <div class="quote-text">A gente precisa se aprofundar na automação em si — o que são os níveis, quantos sistemas, como envolver algo externo, como o formulário da 1doc vai funcionar com isso.</div>
+      <div class="quote-cite">— Inácio Steffen, gestor do produto</div>
+    </div>
+  </div>
+</section>
+
+<!-- DECISOES -->
+<div class="dark-section" id="decisoes">
+  <div class="dark-inner">
+    <div class="section-eyebrow">Decisões de design</div>
+    <h2 class="section-title" style="color:white">O que foi definido<br>no discovery</h2>
+    <p class="section-body" style="margin-bottom:0">Registradas com Nahim (PM 1doc) e Moacir (PM redesign / SolarBPM) na fase de alinhamento.</p>
+    <div class="decisions-grid">
+      <div class="dec-card">
+        <div class="dec-label">Responsável por tarefa</div>
+        <div class="dec-val">Setor — não pessoa específica (limitação atual da plataforma)</div>
+      </div>
+      <div class="dec-card">
+        <div class="dec-label">Processos BPM × manual</div>
+        <div class="dec-val">Não migram entre si — nascem de um tipo ou do outro</div>
+      </div>
+      <div class="dec-card">
+        <div class="dec-label">Ação por etapa</div>
+        <div class="dec-val">Cada etapa tem seu próprio modal — não necessariamente formulário</div>
+      </div>
+      <div class="dec-card">
+        <div class="dec-label">Emissão</div>
+        <div class="dec-val">Dossiê completo + ponto de ação — não só histórico</div>
+      </div>
+      <div class="dec-card">
+        <div class="dec-label">Resolver tarefa</div>
+        <div class="dec-val">Funciona no módulo de Tarefas E na Emissão — sincronizados</div>
+      </div>
+      <div class="dec-card">
+        <div class="dec-label">Formulários dinâmicos</div>
+        <div class="dec-val">Módulo atual não atende — novo builder por etapa de fluxo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESSO -->
+<section id="processo" class="section">
+  <div class="section-eyebrow">Processo de design</div>
+  <h2 class="section-title">De onde viemos.<br><span>Para onde vamos.</span></h2>
+  <p class="section-body">Um processo de design sênior completo — do alinhamento estratégico com PMs até a validação com usuários reais de prefeituras.</p>
+
+  <div class="process-steps">
+    <div class="ps-item">
+      <div class="ps-dot ps-done"><i class="ti ti-check" style="font-size:10px"></i></div>
+      <div class="ps-head"><h4>Alinhamento com PMs</h4><span class="ps-status s-done">Concluído</span></div>
+      <p>Agenda com Nahim (PM 1doc) e Moacir (PM redesign / SolarBPM). Contexto, escopo e objetivos definidos. Entendimento do produto atual e da visão com BPM.</p>
+    </div>
+    <div class="ps-item">
+      <div class="ps-dot ps-done"><i class="ti ti-check" style="font-size:10px"></i></div>
+      <div class="ps-head"><h4>Discovery e decisões de design</h4><span class="ps-status s-done">Concluído</span></div>
+      <p>Mapeamento do fluxo atual, definição dos 4 componentes do projeto, decisões documentadas. Identificação do que já existe, do que adaptar e do que construir do zero.</p>
+    </div>
+    <div class="ps-item">
+      <div class="ps-dot ps-active" style="font-size:9px">●</div>
+      <div class="ps-head"><h4>Prototipação</h4><span class="ps-status s-active">Em andamento</span></div>
+      <p>Módulo de tarefas, modal de resolução, formulários dinâmicos e adaptações na Emissão. Motor Camunda integrado pelo time de dev em paralelo — já rodando em 1bpm.vercel.app.</p>
+    </div>
+    <div class="ps-item">
+      <div class="ps-dot ps-next">4</div>
+      <div class="ps-head"><h4>Validação interna</h4><span class="ps-status s-next">Próximo</span></div>
+      <p>Sessões com implantadores da 1doc e do SolarBPM. Objetivo: validar o fluxo com quem conhece as dores reais antes de ir ao usuário externo.</p>
+    </div>
+    <div class="ps-item">
+      <div class="ps-dot ps-next">5</div>
+      <div class="ps-head"><h4>Validação externa</h4><span class="ps-status s-next">Próximo</span></div>
+      <p>Testes com servidores de prefeituras — priorizando clientes do SolarBPM para comparativo direto. Validar fluxo, linguagem e usabilidade no contexto real.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-logo-icon"><i class="ti ti-grid-dots"></i></div>
+        <span class="footer-logo-text">1doc</span>
+      </div>
+      <p class="footer-tagline">Projeto Unique — integração do motor BPM (Camunda) à plataforma 1doc. Documento de trabalho · Mai 2026.</p>
+    </div>
+    <div class="footer-team">
+      <h5>Time envolvido</h5>
+      <div class="team-list">
+        <div class="team-member">
+          <div class="avatar av-blue">CL</div>
+          <div class="team-info"><div class="name">Cris Lima</div><div class="role">Product Designer Sênior</div></div>
+        </div>
+        <div class="team-member">
+          <div class="avatar av-teal">NH</div>
+          <div class="team-info"><div class="name">Nahim</div><div class="role">PM · 1doc</div></div>
+        </div>
+        <div class="team-member">
+          <div class="avatar av-gray">MC</div>
+          <div class="team-info"><div class="name">Moacir</div><div class="role">PM · Redesign / SolarBPM</div></div>
+        </div>
+        <div class="team-member">
+          <div class="avatar av-gray">IS</div>
+          <div class="team-info"><div class="name">Inácio Steffen</div><div class="role">Gestor do produto</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Softplan · 1doc</p>
+    <p>Projeto Unique · BPM · Documento interno de trabalho</p>
+  </div>
+</footer>
+
+</body>
+</html>
