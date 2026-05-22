@@ -239,6 +239,133 @@ hr.divider { border: none; border-top: 1px solid var(--border); max-width: 960px
 .s-next { background: var(--bg2); color: var(--text3); }
 .ps-item p { font-size: 13px; color: var(--text2); line-height: 1.65; }
 
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,.35); }
+  50%       { box-shadow: 0 0 0 6px rgba(37,99,235,0); }
+}
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes progress-bar {
+  from { width: 0; }
+}
+@keyframes dot-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .3; }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .55s cubic-bezier(.4,0,.2,1), transform .55s cubic-bezier(.4,0,.2,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: .08s; }
+.reveal-delay-2 { transition-delay: .16s; }
+.reveal-delay-3 { transition-delay: .24s; }
+.reveal-delay-4 { transition-delay: .32s; }
+
+/* Nav progress bar */
+#nav-progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: linear-gradient(90deg, var(--blue), #60A5FA);
+  z-index: 200; transition: width .1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Badge pulse */
+.nav-badge { animation: pulse-badge 2.2s ease-in-out infinite; }
+
+/* Active dot blink on strip */
+.strip-dot { animation: dot-blink 2s ease-in-out infinite; }
+
+/* Card hovers */
+.comp-card {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  cursor: default;
+}
+.comp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(15,23,42,.1);
+  border-color: var(--blue-border);
+}
+.entregue-card {
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.entregue-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(15,23,42,.09);
+}
+.dec-card {
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+.dec-card:hover {
+  transform: translateY(-3px);
+  background: var(--dark2);
+  border-color: #60A5FA;
+}
+.ps-item {
+  transition: transform .2s ease;
+}
+.ps-item:hover {
+  transform: translateX(4px);
+}
+
+/* Hero entrance */
+.hero > div:first-child { animation: fadeUp .7s .1s both; }
+.hero > div:last-child  { animation: fadeUp .7s .25s both; }
+.hero-tag               { animation: fadeIn .5s .05s both; }
+
+/* Nav entrance */
+nav { animation: fadeIn .4s ease both; }
+
+/* Stat val counter glow */
+.stat-val.blue {
+  transition: color .3s;
+  text-shadow: 0 0 0 transparent;
+}
+.hero-stats:hover .stat-val.blue {
+  text-shadow: 0 0 12px rgba(37,99,235,.4);
+}
+
+/* Flow step hover */
+.flow-step {
+  transition: background .18s, padding-left .18s;
+  border-radius: 6px;
+  padding-left: 4px;
+}
+.flow-step:hover {
+  background: var(--bg2);
+  padding-left: 10px;
+}
+
+/* Chip hover */
+.chip {
+  transition: transform .15s, box-shadow .15s;
+}
+.chip:hover {
+  transform: scale(1.06);
+  box-shadow: 0 2px 8px rgba(37,99,235,.18);
+}
+
 /* FOOTER */
 footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px solid var(--dark3); }
 .footer-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
@@ -261,6 +388,8 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 </style>
 </head>
 <body>
+
+<div id="nav-progress"></div>
 
 <!-- NAV -->
 <nav>
@@ -337,13 +466,13 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 
 <!-- COMPONENTES -->
 <section id="componentes" class="section">
-  <div class="section-eyebrow">O que está sendo construído</div>
-  <h2 class="section-title">4 componentes.<br><span>Estados diferentes.</span></h2>
-  <p class="section-body">O projeto Unique não parte do zero — parte do que já existe na 1doc e no SolarBPM. Cada componente tem um estado claro: já construído, existente que precisa adaptar, ou novo.</p>
+  <div class="section-eyebrow reveal">O que está sendo construído</div>
+  <h2 class="section-title reveal reveal-delay-1">4 componentes.<br><span>Estados diferentes.</span></h2>
+  <p class="section-body reveal reveal-delay-2">O projeto Unique não parte do zero — parte do que já existe na 1doc e no SolarBPM. Cada componente tem um estado claro: já construído, existente que precisa adaptar, ou novo.</p>
 
   <div class="comp-grid">
 
-    <div class="comp-card novo">
+    <div class="comp-card novo reveal reveal-delay-1">
       <div class="comp-header">
         <div class="comp-icon icon-blue"><i class="ti ti-checklist"></i></div>
         <span class="comp-badge badge-novo">Novo módulo</span>
@@ -357,7 +486,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
       </div>
     </div>
 
-    <div class="comp-card construido">
+    <div class="comp-card construido reveal reveal-delay-2">
       <div class="comp-header">
         <div class="comp-icon icon-amber"><i class="ti ti-git-branch"></i></div>
         <span class="comp-badge badge-construido">Já construído</span>
@@ -371,7 +500,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
       </div>
     </div>
 
-    <div class="comp-card adapta">
+    <div class="comp-card adapta reveal reveal-delay-3">
       <div class="comp-header">
         <div class="comp-icon icon-teal"><i class="ti ti-timeline"></i></div>
         <span class="comp-badge badge-adapta">Adaptação</span>
@@ -385,7 +514,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
       </div>
     </div>
 
-    <div class="comp-card novo">
+    <div class="comp-card novo reveal reveal-delay-4">
       <div class="comp-header">
         <div class="comp-icon icon-blue"><i class="ti ti-forms"></i></div>
         <span class="comp-badge badge-novo">Novo módulo</span>
@@ -406,14 +535,14 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 
 <!-- ENTREGUE -->
 <section id="entregue" class="section">
-  <div class="section-eyebrow">O que já foi entregue</div>
-  <h2 class="section-title">Protótipo rodando.<br><span>Fluxo real funcionando.</span></h2>
-  <p class="section-body">A feature/task-module já está construída e rodando. Quatro entregas concretas que provam o conceito antes da validação com usuários.</p>
+  <div class="section-eyebrow reveal">O que já foi entregue</div>
+  <h2 class="section-title reveal reveal-delay-1">Protótipo rodando.<br><span>Fluxo real funcionando.</span></h2>
+  <p class="section-body reveal reveal-delay-2">A feature/task-module já está construída e rodando. Quatro entregas concretas que provam o conceito antes da validação com usuários.</p>
 
   <div class="entregue-grid">
 
     <!-- CARD 1: INBOX -->
-    <div class="entregue-card">
+    <div class="entregue-card reveal reveal-delay-1">
       <div class="entregue-card-header">
         <div class="entregue-card-title">Badge "Tarefa pendente" no Inbox</div>
         <span class="entregue-badge badge-live">Rodando</span>
@@ -452,7 +581,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
     </div>
 
     <!-- CARD 2: BPMN -->
-    <div class="entregue-card">
+    <div class="entregue-card reveal reveal-delay-2">
       <div class="entregue-card-header">
         <div class="entregue-card-title">Modal de visualização do fluxo BPMN</div>
         <span class="entregue-badge badge-live">Rodando</span>
@@ -511,7 +640,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
     </div>
 
     <!-- CARD 3: EVENTO -->
-    <div class="entregue-card">
+    <div class="entregue-card reveal reveal-delay-3">
       <div class="entregue-card-header">
         <div class="entregue-card-title">Evento "TAREFA DO SISTEMA" na Emissão</div>
         <span class="entregue-badge badge-live">Rodando</span>
@@ -540,7 +669,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
     </div>
 
     <!-- CARD 4: MENU -->
-    <div class="entregue-card">
+    <div class="entregue-card reveal reveal-delay-4">
       <div class="entregue-card-header">
         <div class="entregue-card-title">Módulo "Tarefas" no menu superior</div>
         <span class="entregue-badge badge-live">Rodando</span>
@@ -571,9 +700,9 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 
 <!-- MUDANÇA DE MENTALIDADE -->
 <section id="mudanca" class="section">
-  <div class="section-eyebrow">A mudança para o servidor</div>
-  <h2 class="section-title">Mesma 1doc.<br><span>Outro conceito de trabalho.</span></h2>
-  <p class="section-body">O servidor não precisa aprender um sistema novo. O que muda é o modelo mental — de responder como num e-mail para aprovar ou recusar com o sistema guiando cada passo.</p>
+  <div class="section-eyebrow reveal">A mudança para o servidor</div>
+  <h2 class="section-title reveal reveal-delay-1">Mesma 1doc.<br><span>Outro conceito de trabalho.</span></h2>
+  <p class="section-body reveal reveal-delay-2">O servidor não precisa aprender um sistema novo. O que muda é o modelo mental — de responder como num e-mail para aprovar ou recusar com o sistema guiando cada passo.</p>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2rem">
 
@@ -680,9 +809,9 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 
 <!-- FLUXO -->
 <section id="fluxo" class="section">
-  <div class="section-eyebrow">O fluxo com BPM</div>
-  <h2 class="section-title">De respostas encadeadas<br>a <span>tarefas automáticas</span></h2>
-  <p class="section-body">A chegada do BPM não substitui a 1doc — ela a potencializa. O processo continua sendo criado da mesma forma, mas a partir daí a plataforma guia cada etapa.</p>
+  <div class="section-eyebrow reveal">O fluxo com BPM</div>
+  <h2 class="section-title reveal reveal-delay-1">De respostas encadeadas<br>a <span>tarefas automáticas</span></h2>
+  <p class="section-body reveal reveal-delay-2">A chegada do BPM não substitui a 1doc — ela a potencializa. O processo continua sendo criado da mesma forma, mas a partir daí a plataforma guia cada etapa.</p>
 
   <div class="flow-grid">
     <div class="flow-col">
@@ -725,21 +854,14 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
     </div>
   </div>
 
-  <div class="quote-block">
-    <span class="quote-icon">"</span>
-    <div>
-      <div class="quote-text">A gente precisa se aprofundar na automação em si — o que são os níveis, quantos sistemas, como envolver algo externo, como o formulário da 1doc vai funcionar com isso.</div>
-      <div class="quote-cite">— Inácio Steffen, gestor do produto</div>
-    </div>
-  </div>
 </section>
 
 <!-- DECISOES -->
 <div class="dark-section" id="decisoes">
   <div class="dark-inner">
-    <div class="section-eyebrow">Decisões de design</div>
-    <h2 class="section-title" style="color:white">O que foi definido<br>no discovery</h2>
-    <p class="section-body" style="margin-bottom:0">Registradas com Nahim (PM 1doc) e Moacir (PM redesign / SolarBPM) na fase de alinhamento.</p>
+    <div class="section-eyebrow reveal">Decisões de design</div>
+    <h2 class="section-title reveal reveal-delay-1" style="color:white">O que foi definido<br>no discovery</h2>
+    <p class="section-body reveal reveal-delay-2" style="margin-bottom:0">Registradas com Nahim (PM 1doc) e Moacir (PM redesign / SolarBPM) na fase de alinhamento.</p>
     <div class="decisions-grid">
       <div class="dec-card">
         <div class="dec-label">Responsável por tarefa</div>
@@ -771,9 +893,9 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 
 <!-- PROCESSO -->
 <section id="processo" class="section">
-  <div class="section-eyebrow">Processo de design</div>
-  <h2 class="section-title">De onde viemos.<br><span>Para onde vamos.</span></h2>
-  <p class="section-body">Um processo de design sênior completo — do alinhamento estratégico com PMs até a validação com usuários reais de prefeituras.</p>
+  <div class="section-eyebrow reveal">Processo de design</div>
+  <h2 class="section-title reveal reveal-delay-1">De onde viemos.<br><span>Para onde vamos.</span></h2>
+  <p class="section-body reveal reveal-delay-2">Um processo de design sênior completo — do alinhamento estratégico com PMs até a validação com usuários reais de prefeituras.</p>
 
   <div class="process-steps">
     <div class="ps-item">
@@ -849,5 +971,73 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
   </div>
 </footer>
 
+<script>
+// ── Scroll progress bar ──────────────────────────────────────
+const bar = document.getElementById('nav-progress');
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const total = document.body.scrollHeight - window.innerHeight;
+  bar.style.width = (scrolled / total * 100) + '%';
+}, { passive: true });
+
+// ── Reveal on scroll ─────────────────────────────────────────
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ── Animated counter for stat-val numbers ────────────────────
+function animateCount(el, target, duration = 900) {
+  let start = null;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.round(ease * target);
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const val = parseInt(el.dataset.count);
+      if (!isNaN(val)) animateCount(el, val);
+      statObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-val').forEach(el => {
+  const num = parseInt(el.textContent);
+  if (!isNaN(num) && num > 0) {
+    el.dataset.count = num;
+    el.textContent = '0';
+    statObserver.observe(el);
+  }
+});
+
+// ── dec-cards staggered reveal ────────────────────────────────
+document.querySelectorAll('.dec-card').forEach((el, i) => {
+  el.classList.add('reveal');
+  el.style.transitionDelay = (i * 0.07) + 's';
+  observer.observe(el);
+});
+
+// ── ps-items staggered reveal ─────────────────────────────────
+document.querySelectorAll('.ps-item').forEach((el, i) => {
+  el.classList.add('reveal');
+  el.style.transitionDelay = (i * 0.1) + 's';
+  observer.observe(el);
+});
+</script>
 </body>
 </html>
