@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projeto Unique — BPM na 1doc</title>
+<title>Projeto Unique — Processos Inteligentes na 1Doc</title>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
@@ -171,6 +171,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); max-width: 960px
 .comp-card.existe::before { background: var(--green); }
 .comp-card.adapta::before { background: var(--teal); }
 .comp-card.construido::before { background: var(--amber); }
+.comp-card.definicao::before { background: var(--purple); }
 .comp-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: .75rem; gap: .5rem; }
 .comp-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .comp-icon i { font-size: 18px; }
@@ -183,6 +184,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); max-width: 960px
 .badge-existe { background: var(--green-light); color: var(--green); }
 .badge-adapta { background: var(--teal-light); color: var(--teal); }
 .badge-construido { background: var(--amber-light); color: var(--amber); }
+.badge-definicao  { background: var(--purple-light); color: var(--purple); }
 .comp-card h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: .4rem; }
 .comp-card p { font-size: 13px; color: var(--text2); line-height: 1.6; }
 .comp-detail { margin-top: .75rem; padding-top: .75rem; border-top: 1px solid var(--border); }
@@ -398,10 +400,10 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
       <div class="nav-logo-icon">
         <svg viewBox="0 0 16 16"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
       </div>
-      <span class="nav-logo-text">1doc</span>
+      <span class="nav-logo-text">1Doc</span>
     </div>
     <div class="nav-sep"></div>
-    <span class="nav-project">Projeto Unique · BPM</span>
+    <span class="nav-project">Projeto Unique · Processos Inteligentes</span>
   </div>
   <div class="nav-links">
     <a href="#componentes">Componentes</a>
@@ -421,10 +423,10 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 <div class="hero">
   <div>
     <div class="hero-tag">Projeto Unique · Product Design</div>
-    <h1>Automatizando processos na 1doc com <span>motor de BPM</span></h1>
-    <p>A 1doc atende centenas de prefeituras no Brasil. Este projeto integra o motor Camunda à plataforma, transformando fluxos manuais e dependentes de pessoas em experiências guiadas, rastreáveis e automáticas.</p>
+    <h1>Automatizando processos na 1Doc com <span>Processos Inteligentes</span></h1>
+    <p>A 1Doc atende centenas de prefeituras no Brasil. Este projeto integra o motor Camunda à plataforma, transformando fluxos manuais e dependentes de pessoas em experiências guiadas, rastreáveis e automáticas.</p>
     <div class="hero-chips">
-      <span class="chip chip-blue">Camunda BPM</span>
+      <span class="chip chip-blue">Camunda</span>
       <span class="chip chip-teal">Setor público</span>
       <span class="chip chip-amber">Prototipação</span>
       <span class="chip chip-gray">Cris Lima · Designer Sr.</span>
@@ -468,7 +470,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 <section id="componentes" class="section">
   <div class="section-eyebrow reveal">O que está sendo construído</div>
   <h2 class="section-title reveal reveal-delay-1">4 componentes.<br><span>Estados diferentes.</span></h2>
-  <p class="section-body reveal reveal-delay-2">O projeto Unique não parte do zero — parte do que já existe na 1doc e no SolarBPM. Cada componente tem um estado claro: já construído, existente que precisa adaptar, ou novo.</p>
+  <p class="section-body reveal reveal-delay-2">O projeto Unique não parte do zero — parte do que já existe na 1Doc e no SolarProcessos Inteligentes. Cada componente tem um estado claro: já construído, existente que precisa adaptar, ou novo.</p>
 
   <div class="comp-grid">
 
@@ -478,7 +480,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
         <span class="comp-badge badge-novo">Novo módulo</span>
       </div>
       <h3>Módulo de tarefas</h3>
-      <p>Nova entrada no menu superior da 1doc. Hub central de pendências do setor com contador de tarefas ativas, filtros e botão Resolver por tarefa.</p>
+      <p>Nova entrada no menu superior da 1Doc. Hub central de pendências do setor com contador de tarefas ativas, filtros e botão Resolver por tarefa.</p>
       <div class="comp-detail">
         <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Entra no menu superior entre "Fila de assinaturas" e Buscar</div>
         <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Tarefas por setor — não por pessoa (limitação atual)</div>
@@ -486,17 +488,17 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
       </div>
     </div>
 
-    <div class="comp-card construido reveal reveal-delay-2">
+    <div class="comp-card definicao reveal reveal-delay-2">
       <div class="comp-header">
         <div class="comp-icon icon-amber"><i class="ti ti-git-branch"></i></div>
-        <span class="comp-badge badge-construido">Já construído</span>
+        <span class="comp-badge badge-definicao">Em definição</span>
       </div>
       <h3>Configuração de automações</h3>
-      <p>Motor Camunda já rodando em projeto separado (1bpm.vercel.app). Interface de criação e configuração de fluxos BPM, integração com processos externos e triggers.</p>
+      <p>Motor Camunda já rodando em projeto separado (1bpm.vercel.app). Interface de criação e configuração de fluxos Processos Inteligentes, integração com processos externos e triggers.</p>
       <div class="comp-detail">
-        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Projeto 1doc-bpm rodando localmente na porta 5176</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Projeto 1Doc-bpm rodando localmente na porta 5176</div>
         <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Módulos: motor, configurações, front personalizado</div>
-        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Backoffice que alimenta os fluxos da 1doc</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Backoffice que alimenta os fluxos da 1Doc</div>
       </div>
     </div>
 
@@ -506,11 +508,11 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
         <span class="comp-badge badge-adapta">Adaptação</span>
       </div>
       <h3>Acompanhamento de processo</h3>
-      <p>Já existe na Emissão como barra de etapas visual (Cotação → Análise → Aprovação...). Precisa ser adaptada para responder ao Camunda e refletir o estado real do fluxo BPM.</p>
+      <p>Já existe na Emissão como barra de etapas visual (Cotação → Análise → Aprovação...). Precisa ser adaptada para responder ao Camunda e refletir o estado real do fluxo Processos Inteligentes.</p>
       <div class="comp-detail">
         <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Etapas atuais são estáticas — precisam virar dinâmicas</div>
         <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Evento de tarefa inline na linha do tempo</div>
-        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Diferenciação visual: despacho humano vs gerado pelo BPM</div>
+        <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Diferenciação visual: despacho humano vs gerado pelo Processos Inteligentes</div>
       </div>
     </div>
 
@@ -520,7 +522,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
         <span class="comp-badge badge-novo">Novo módulo</span>
       </div>
       <h3>Formulários dinâmicos</h3>
-      <p>A 1doc tem um módulo de formulários hoje, mas ele não atende o BPM. Precisamos de formulários por etapa — cada fase do fluxo pode ter seu próprio form, upload ou ação específica.</p>
+      <p>A 1Doc tem um módulo de formulários hoje, mas ele não atende o Processos Inteligentes. Precisamos de formulários por etapa — cada fase do fluxo pode ter seu próprio form, upload ou ação específica.</p>
       <div class="comp-detail">
         <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Form atual está amarrado ao assunto — não às etapas</div>
         <div class="comp-detail-item"><i class="ti ti-arrow-right"></i>Cada etapa pode ter: form, upload, aprovação simples</div>
@@ -551,7 +553,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
         <div class="mock-screen">
           <div class="mock-screen-bar"><div class="msd msd-r"></div><div class="msd msd-y"></div><div class="msd msd-g"></div></div>
           <div class="mock-screen-content" style="padding:0">
-            <!-- row BPM fiel ao print -->
+            <!-- row Processos Inteligentes fiel ao print -->
             <div style="background:#FEF3C7;border-bottom:1px solid var(--border);padding:10px 12px;">
               <div style="font-size:10px;font-weight:700;color:#92400E;background:#FCD34D;display:inline-block;padding:2px 8px;border-radius:4px;margin-bottom:6px">Tarefa pendente</div>
               <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
@@ -559,7 +561,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
                   <div style="font-size:12px;font-weight:700;color:var(--dark)">Proc. Administrativo <span style="color:var(--dark)">142/2025</span></div>
                   <div style="font-size:10px;color:var(--text3);margin-top:2px">21/05/2026 às 10h20</div>
                   <div style="margin-top:5px;display:flex;align-items:center;gap:4px">
-                    <span style="background:#FEF3C7;border:1px solid #FCD34D;color:#92400E;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px">BPM ×</span>
+                    <span style="background:#FEF3C7;border:1px solid #FCD34D;color:#92400E;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px">P.I. ×</span>
                   </div>
                 </div>
                 <div style="text-align:right">
@@ -574,7 +576,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
         </div>
         <div class="entregue-detail">
           <div class="entregue-item"><i class="ti ti-check"></i>Badge laranja "Tarefa pendente" acima da linha do processo</div>
-          <div class="entregue-item"><i class="ti ti-check"></i>Tag "BPM ×" filtrável junto aos setores envolvidos</div>
+          <div class="entregue-item"><i class="ti ti-check"></i>Tag "P.I. ×" filtrável junto aos setores envolvidos</div>
           <div class="entregue-item"><i class="ti ti-check"></i>Não quebra o fluxo atual — só sinaliza processos com tarefa ativa</div>
         </div>
       </div>
@@ -590,7 +592,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
         <div style="background:var(--dark2);border-radius:8px;overflow:hidden;margin-bottom:.75rem">
           <!-- header escuro -->
           <div style="padding:10px 14px;border-bottom:1px solid var(--dark3)">
-            <div style="font-size:9px;color:#60A5FA;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px">BPM · Camunda BPMN 2.0</div>
+            <div style="font-size:9px;color:#60A5FA;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px">Processos Inteligentes · Camunda BPMN 2.0</div>
             <div style="font-size:13px;font-weight:700;color:white;margin-bottom:4px">Solicitação de Férias — 031/2026</div>
             <div style="display:flex;align-items:center;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block"></span><span style="font-size:10px;color:#86EFAC">Processamento Financeiro em andamento</span></div>
           </div>
@@ -701,7 +703,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 <!-- MUDANÇA DE MENTALIDADE -->
 <section id="mudanca" class="section">
   <div class="section-eyebrow reveal">A mudança para o servidor</div>
-  <h2 class="section-title reveal reveal-delay-1">Mesma 1doc.<br><span>Outro conceito de trabalho.</span></h2>
+  <h2 class="section-title reveal reveal-delay-1">Mesma 1Doc.<br><span>Outro conceito de trabalho.</span></h2>
   <p class="section-body reveal reveal-delay-2">O servidor não precisa aprender um sistema novo. O que muda é o modelo mental — de responder como num e-mail para aprovar ou recusar com o sistema guiando cada passo.</p>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2rem">
@@ -753,7 +755,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
     <div style="background:var(--blue-light);border:1px solid var(--blue-border);border-radius:var(--radius-lg);padding:1.5rem">
       <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:1rem;display:flex;align-items:center;gap:6px">
         <span style="width:6px;height:6px;border-radius:50%;background:var(--blue);display:inline-block"></span>
-        Com BPM
+        Com Processos Inteligentes
       </div>
       <div style="display:flex;flex-direction:column;gap:.9rem">
         <div style="display:flex;align-items:flex-start;gap:10px">
@@ -809,13 +811,13 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
 
 <!-- FLUXO -->
 <section id="fluxo" class="section">
-  <div class="section-eyebrow reveal">O fluxo com BPM</div>
+  <div class="section-eyebrow reveal">O fluxo com Processos Inteligentes</div>
   <h2 class="section-title reveal reveal-delay-1">De respostas encadeadas<br>a <span>tarefas automáticas</span></h2>
-  <p class="section-body reveal reveal-delay-2">A chegada do BPM não substitui a 1doc — ela a potencializa. O processo continua sendo criado da mesma forma, mas a partir daí a plataforma guia cada etapa.</p>
+  <p class="section-body reveal reveal-delay-2">A chegada do Processos Inteligentes não substitui a 1Doc — ela a potencializa. O processo continua sendo criado da mesma forma, mas a partir daí a plataforma guia cada etapa.</p>
 
   <div class="flow-grid">
     <div class="flow-col">
-      <div class="flow-col-header before"><span class="flow-label">Hoje — sem BPM</span></div>
+      <div class="flow-col-header before"><span class="flow-label">Hoje — sem Processos Inteligentes</span></div>
       <div class="flow-step">
         <div class="fnum fnum-gray">1</div>
         <div class="fstep-content"><strong>Processo cai no inbox coletivo</strong><span>Para todos do setor, sem distinção ou prioridade.</span></div>
@@ -834,10 +836,10 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
       </div>
     </div>
     <div class="flow-col">
-      <div class="flow-col-header after"><span class="flow-label">Com BPM — Projeto Unique</span></div>
+      <div class="flow-col-header after"><span class="flow-label">Com Processos Inteligentes — Projeto Unique</span></div>
       <div class="flow-step">
         <div class="fnum fnum-blue">1</div>
-        <div class="fstep-content"><strong>Processo + formulário dinâmico</strong><span>Criado vinculado a um fluxo BPM com etapas definidas.</span></div>
+        <div class="fstep-content"><strong>Processo + formulário dinâmico</strong><span>Criado vinculado a um fluxo Processos Inteligentes com etapas definidas.</span></div>
       </div>
       <div class="flow-step">
         <div class="fnum fnum-blue">2</div>
@@ -861,14 +863,14 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
   <div class="dark-inner">
     <div class="section-eyebrow reveal">Decisões de design</div>
     <h2 class="section-title reveal reveal-delay-1" style="color:white">O que foi definido<br>no discovery</h2>
-    <p class="section-body reveal reveal-delay-2" style="margin-bottom:0">Registradas com Nahim (PM 1doc) e Moacir (PM redesign / SolarBPM) na fase de alinhamento.</p>
+    <p class="section-body reveal reveal-delay-2" style="margin-bottom:0">Registradas com Nahim (PM 1Doc) e Moacir (PM redesign / SolarProcessos Inteligentes) na fase de alinhamento.</p>
     <div class="decisions-grid">
       <div class="dec-card">
         <div class="dec-label">Responsável por tarefa</div>
         <div class="dec-val">Setor — não pessoa específica (limitação atual da plataforma)</div>
       </div>
       <div class="dec-card">
-        <div class="dec-label">Processos BPM × manual</div>
+        <div class="dec-label">P.I. × manual</div>
         <div class="dec-val">Não migram entre si — nascem de um tipo ou do outro</div>
       </div>
       <div class="dec-card">
@@ -901,7 +903,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
     <div class="ps-item">
       <div class="ps-dot ps-done"><i class="ti ti-check" style="font-size:10px"></i></div>
       <div class="ps-head"><h4>Alinhamento com PMs</h4><span class="ps-status s-done">Concluído</span></div>
-      <p>Agenda com Nahim (PM 1doc) e Moacir (PM redesign / SolarBPM). Contexto, escopo e objetivos definidos. Entendimento do produto atual e da visão com BPM.</p>
+      <p>Agenda com Nahim (PM 1Doc) e Moacir (PM redesign / SolarProcessos Inteligentes). Contexto, escopo e objetivos definidos. Entendimento do produto atual e da visão com Processos Inteligentes.</p>
     </div>
     <div class="ps-item">
       <div class="ps-dot ps-done"><i class="ti ti-check" style="font-size:10px"></i></div>
@@ -913,7 +915,7 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
       <div class="ps-head"><h4>Prototipação</h4><span class="ps-status s-active">Em andamento</span></div>
       <p>Branch <code style="background:var(--bg2);padding:1px 5px;border-radius:4px;font-size:12px">feature/task-module</code> criada e rodando. Quatro entregas concluídas:</p>
       <div style="margin-top:.75rem;display:flex;flex-direction:column;gap:5px">
-        <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text2)"><i class="ti ti-check" style="color:var(--green);font-size:12px"></i>Badge "Tarefa pendente" no inbox com tag BPM</div>
+        <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text2)"><i class="ti ti-check" style="color:var(--green);font-size:12px"></i>Badge "Tarefa pendente" no inbox com tag Processos Inteligentes</div>
         <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text2)"><i class="ti ti-check" style="color:var(--green);font-size:12px"></i>Modal de visualização do fluxo BPMN (Camunda BPMN 2.0) com swimlanes por setor</div>
         <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text2)"><i class="ti ti-check" style="color:var(--green);font-size:12px"></i>Evento "TAREFA DO SISTEMA" na linha do tempo com botão Resolver inline</div>
         <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text2)"><i class="ti ti-check" style="color:var(--green);font-size:12px"></i>Módulo "Tarefas" no menu superior com contador e modal Aprovar/Recusar/Ajustes</div>
@@ -923,12 +925,12 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
     <div class="ps-item">
       <div class="ps-dot ps-next">4</div>
       <div class="ps-head"><h4>Validação interna</h4><span class="ps-status s-next">Próximo</span></div>
-      <p>Sessões com implantadores da 1doc e do SolarBPM. Objetivo: validar o fluxo com quem conhece as dores reais antes de ir ao usuário externo.</p>
+      <p>Sessões com implantadores da 1Doc e do SolarProcessos Inteligentes. Objetivo: validar o fluxo com quem conhece as dores reais antes de ir ao usuário externo.</p>
     </div>
     <div class="ps-item">
       <div class="ps-dot ps-next">5</div>
       <div class="ps-head"><h4>Validação externa</h4><span class="ps-status s-next">Próximo</span></div>
-      <p>Testes com servidores de prefeituras — priorizando clientes do SolarBPM para comparativo direto. Validar fluxo, linguagem e usabilidade no contexto real.</p>
+      <p>Testes com servidores de prefeituras — priorizando clientes do SolarProcessos Inteligentes para comparativo direto. Validar fluxo, linguagem e usabilidade no contexto real.</p>
     </div>
   </div>
 </section>
@@ -939,9 +941,9 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
     <div>
       <div class="footer-brand">
         <div class="footer-logo-icon"><i class="ti ti-grid-dots"></i></div>
-        <span class="footer-logo-text">1doc</span>
+        <span class="footer-logo-text">1Doc</span>
       </div>
-      <p class="footer-tagline">Projeto Unique — integração do motor BPM (Camunda) à plataforma 1doc. Documento de trabalho · Mai 2026.</p>
+      <p class="footer-tagline">Projeto Unique — integração do motor de Processos Inteligentes (Camunda) à plataforma 1Doc. Documento de trabalho · Mai 2026.</p>
     </div>
     <div class="footer-team">
       <h5>Time envolvido</h5>
@@ -952,11 +954,11 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
         </div>
         <div class="team-member">
           <div class="avatar av-teal">NH</div>
-          <div class="team-info"><div class="name">Nahim</div><div class="role">PM · 1doc</div></div>
+          <div class="team-info"><div class="name">Nahim</div><div class="role">PM · 1Doc</div></div>
         </div>
         <div class="team-member">
           <div class="avatar av-gray">MC</div>
-          <div class="team-info"><div class="name">Moacir</div><div class="role">PM · Redesign / SolarBPM</div></div>
+          <div class="team-info"><div class="name">Moacir</div><div class="role">PM · Redesign / SolarProcessos Inteligentes</div></div>
         </div>
         <div class="team-member">
           <div class="avatar av-gray">IS</div>
@@ -966,8 +968,8 @@ footer { background: var(--dark); padding: 3rem 2.5rem 2rem; border-top: 1px sol
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 Softplan · 1doc</p>
-    <p>Projeto Unique · BPM · Documento interno de trabalho</p>
+    <p>© 2026 Softplan · 1Doc</p>
+    <p>Projeto Unique · Processos Inteligentes · Documento interno de trabalho</p>
   </div>
 </footer>
 
